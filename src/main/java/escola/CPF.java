@@ -7,7 +7,7 @@ public class CPF {
 
     public CPF(String numero) {
         String cpfRegex = "^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$";
-        if (numero == null || !cpfRegex.matches(cpfRegex)) {
+        if (numero == null || !numero.matches(cpfRegex)) {
             throw new IllegalArgumentException("CPF inválido!");
         }
 
