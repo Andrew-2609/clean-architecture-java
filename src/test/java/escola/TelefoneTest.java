@@ -2,9 +2,15 @@ package escola;
 
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TelefoneTest {
+
+    @Test
+    void deveriaCriarTelefoneComDDDENumeroValidos() {
+        assertDoesNotThrow(() -> new Telefone("85", "91234-5678"));
+    }
 
     @Test
     void naoDeveriaCriarTelefonesComDDDOuNumeroInvalidos() {
