@@ -1,5 +1,6 @@
 package escola;
 
+// VALUE OBJECT
 public class Email {
 
     private final String endereco;
