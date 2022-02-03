@@ -17,8 +17,8 @@ public class TelefoneTest {
 
         assertThrows(IllegalArgumentException.class, () -> new Telefone("", ""));
 
-        IllegalArgumentException exceptionCausedByInvalidDDD = assertThrows(IllegalArgumentException.class, () -> new Telefone("", "91234-5678"));
-        IllegalArgumentException exceptionCausedByInvalidNumero = assertThrows(IllegalArgumentException.class, () -> new Telefone("85", ""));
+        IllegalArgumentException exceptionCausedByInvalidDDD = assertThrows(IllegalArgumentException.class, () -> new Telefone("OK", "91234-5678"));
+        IllegalArgumentException exceptionCausedByInvalidNumero = assertThrows(IllegalArgumentException.class, () -> new Telefone("85", "51234-5678"));
 
         assertEquals("DDD inválido!", exceptionCausedByInvalidDDD.getMessage());
 
