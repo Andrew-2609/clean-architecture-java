@@ -1,5 +1,7 @@
 package com.ndrewcoding.escola;
 
+import com.ndrewcoding.escola.aluno.Aluno;
+
 import java.time.LocalDateTime;
 
 import static java.time.LocalDateTime.now;

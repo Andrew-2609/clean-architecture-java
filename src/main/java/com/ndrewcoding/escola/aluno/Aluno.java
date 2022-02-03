@@ -1,4 +1,4 @@
-package com.ndrewcoding.escola;
+package com.ndrewcoding.escola.aluno;
 
 import java.util.ArrayList;
 import java.util.Collections;

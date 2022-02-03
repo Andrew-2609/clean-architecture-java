@@ -1,4 +1,4 @@
-package com.ndrewcoding.escola;
+package com.ndrewcoding.escola.aluno;
 
 // VALUE OBJECT
 public class Email {
