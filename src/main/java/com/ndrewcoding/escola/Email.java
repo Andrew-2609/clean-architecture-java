@@ -1,4 +1,4 @@
-package escola;
+package com.ndrewcoding.escola;
 
 // VALUE OBJECT
 public class Email {
@@ -17,5 +17,5 @@ public class Email {
     public String getEndereco() {
         return endereco;
     }
-    
+
 }

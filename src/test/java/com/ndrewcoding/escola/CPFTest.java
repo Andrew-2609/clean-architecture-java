@@ -1,4 +1,4 @@
-package escola;
+package com.ndrewcoding.escola;
 
 import org.junit.jupiter.api.Test;
 

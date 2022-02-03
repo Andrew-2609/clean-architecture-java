@@ -1,4 +1,4 @@
-package escola;
+package com.ndrewcoding.escola;
 
 // VALUE OBJECT
 public class CPF {

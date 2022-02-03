@@ -1,4 +1,4 @@
-package escola;
+package com.ndrewcoding.escola;
 
 import java.util.ArrayList;
 import java.util.Collections;
