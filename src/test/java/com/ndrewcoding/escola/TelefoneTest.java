@@ -1,6 +1,6 @@
 package com.ndrewcoding.escola;
 
-import com.ndrewcoding.escola.aluno.Telefone;
+import com.ndrewcoding.escola.dominio.aluno.Telefone;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,4 +1,4 @@
-package com.ndrewcoding.escola.aluno;
+package com.ndrewcoding.escola.dominio.aluno;
 
 // VALUE OBJECT
 public class Telefone {

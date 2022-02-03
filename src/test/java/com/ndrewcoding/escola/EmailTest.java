@@ -1,6 +1,6 @@
 package com.ndrewcoding.escola;
 
-import com.ndrewcoding.escola.aluno.Email;
+import com.ndrewcoding.escola.dominio.aluno.Email;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;

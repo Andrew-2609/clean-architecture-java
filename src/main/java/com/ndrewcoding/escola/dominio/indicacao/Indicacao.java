@@ -1,6 +1,6 @@
-package com.ndrewcoding.escola.indicacao;
+package com.ndrewcoding.escola.dominio.indicacao;
 
-import com.ndrewcoding.escola.aluno.Aluno;
+import com.ndrewcoding.escola.dominio.aluno.Aluno;
 
 import java.time.LocalDateTime;
 
