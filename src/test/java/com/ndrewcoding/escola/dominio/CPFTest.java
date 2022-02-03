@@ -1,4 +1,4 @@
-package com.ndrewcoding.escola;
+package com.ndrewcoding.escola.dominio;
 
 import com.ndrewcoding.escola.dominio.aluno.CPF;
 import org.junit.jupiter.api.Test;
