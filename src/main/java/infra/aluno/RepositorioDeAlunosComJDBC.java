@@ -34,7 +34,6 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
                 preparedStatement.setString(2, telefone.getNumero());
                 preparedStatement.execute();
             }
-
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
