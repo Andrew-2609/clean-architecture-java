@@ -6,8 +6,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("SqlNoDataSourceInspection")
 public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 
     private final Connection connection;
@@ -57,16 +59,8 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 
             Aluno alunoEncontrado = new Aluno(cpf, nome, email);
 
-            sql = "SELECT ddd, numero FROM telefones WHERE aluno_id = ?";
-            preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setLong(1, id);
-
-            resultSet = preparedStatement.executeQuery();
-
-            while (resultSet.next()) {
-                String ddd = resultSet.getString("ddd");
-                String numero = resultSet.getString("numero");
-                alunoEncontrado.adicionarTelefone(ddd, numero);
+            for (Telefone telefone : findTelefonesByAlunoId(id)) {
+                alunoEncontrado.adicionarTelefone(telefone);
             }
 
             return alunoEncontrado;
@@ -77,7 +71,51 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
 
     @Override
     public List<Aluno> listarTodosAlunosMatriculados() {
-        return null;
+        String sql = "SELECT id, cpf, nome, email FROM alunos";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            List<Aluno> alunosEncontrados = new ArrayList<>();
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String cpf = resultSet.getString("cpf");
+                String nome = resultSet.getString("nome");
+                String email = resultSet.getString("email");
+                Long id = resultSet.getLong("id");
+
+                Aluno aluno = new Aluno(new CPF(cpf), nome, new Email(email));
+
+                for (Telefone telefone : findTelefonesByAlunoId(id)) {
+                    aluno.adicionarTelefone(telefone);
+                }
+
+                alunosEncontrados.add(aluno);
+            }
+
+            return alunosEncontrados;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private List<Telefone> findTelefonesByAlunoId(Long id) throws SQLException {
+        String sql = "SELECT ddd, numero FROM telefones WHERE aluno_id = ?";
+        PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        preparedStatement.setLong(1, id);
+
+        List<Telefone> telefonesEncontrados = new ArrayList<>();
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        while (resultSet.next()) {
+            String ddd = resultSet.getString("ddd");
+            String numero = resultSet.getString("numero");
+
+            telefonesEncontrados.add(new Telefone(ddd, numero));
+        }
+
+        return telefonesEncontrados;
     }
 
 }
