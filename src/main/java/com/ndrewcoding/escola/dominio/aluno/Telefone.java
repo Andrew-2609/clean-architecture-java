@@ -22,6 +22,14 @@ public class Telefone {
         this.numero = numero;
     }
 
+    public String getDdd() {
+        return ddd;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
     public String getTelefone() {
         return "(".concat(ddd).concat(")").concat(" ").concat(numero);
     }
