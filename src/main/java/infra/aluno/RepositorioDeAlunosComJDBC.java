@@ -1,11 +1,10 @@
 package infra.aluno;
 
-import com.ndrewcoding.escola.dominio.aluno.Aluno;
-import com.ndrewcoding.escola.dominio.aluno.RepositorioDeAlunos;
-import com.ndrewcoding.escola.dominio.aluno.Telefone;
+import com.ndrewcoding.escola.dominio.aluno.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -40,8 +39,40 @@ public class RepositorioDeAlunosComJDBC implements RepositorioDeAlunos {
     }
 
     @Override
-    public Aluno buscarPorCpf(Aluno aluno) {
-        return null;
+    public Aluno buscarPorCPF(CPF cpf) {
+        String sql = "SELECT id, nome, email FROM alunos WHERE cpf = ?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1, cpf.getNumero());
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            boolean encontrouAluno = resultSet.next();
+            if (!encontrouAluno) {
+                throw new AlunoNaoEncontradoPorCPFException(cpf);
+            }
+
+            String nome = resultSet.getString("nome");
+            Email email = new Email(resultSet.getString("email"));
+            Long id = resultSet.getLong("id");
+
+            Aluno alunoEncontrado = new Aluno(cpf, nome, email);
+
+            sql = "SELECT ddd, numero FROM telefones WHERE aluno_id = ?";
+            preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setLong(1, id);
+
+            resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                String ddd = resultSet.getString("ddd");
+                String numero = resultSet.getString("numero");
+                alunoEncontrado.adicionarTelefone(ddd, numero);
+            }
+
+            return alunoEncontrado;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
