@@ -30,8 +30,8 @@ public class Aluno {
         return nome;
     }
 
-    public Email getEmail() {
-        return email;
+    public String getEmail() {
+        return email.getEndereco();
     }
 
     public List<Telefone> getTelefones() {
