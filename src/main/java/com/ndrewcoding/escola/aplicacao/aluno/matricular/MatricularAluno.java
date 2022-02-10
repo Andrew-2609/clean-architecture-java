@@ -11,7 +11,7 @@ public class MatricularAluno {
         this.repositorioDeAlunos = repositorioDeAlunos;
     }
 
-    public void matricular(MatricularAlunoDTO matricularAlunoDTO) {
+    public void executar(MatricularAlunoDTO matricularAlunoDTO) {
         Aluno novoAluno = matricularAlunoDTO.criarAluno();
         repositorioDeAlunos.matricular(novoAluno);
     }
