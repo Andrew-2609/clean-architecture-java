@@ -6,13 +6,13 @@ import com.ndrewcoding.escola.dominio.aluno.Email;
 
 public class MatricularAlunoDTO {
 
-    private final String nomeAluno;
     private final String cpfAluno;
+    private final String nomeAluno;
     private final String emailAluno;
 
-    public MatricularAlunoDTO(String nomeAluno, String cpfAluno, String emailAluno) {
-        this.nomeAluno = nomeAluno;
+    public MatricularAlunoDTO(String cpfAluno, String nomeAluno, String emailAluno) {
         this.cpfAluno = cpfAluno;
+        this.nomeAluno = nomeAluno;
         this.emailAluno = emailAluno;
     }
 
