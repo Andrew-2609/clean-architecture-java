@@ -42,4 +42,14 @@ public class Aluno {
         return Collections.unmodifiableList(telefones);
     }
 
+    @Override
+    public String toString() {
+        return "Aluno("
+                .concat("CPF: " + this.cpf)
+                .concat(", Nome: " + this.nome)
+                .concat(", Email: " + this.email)
+                .concat(", Telefone(s): " + this.telefones)
+                .concat(")");
+    }
+
 }
