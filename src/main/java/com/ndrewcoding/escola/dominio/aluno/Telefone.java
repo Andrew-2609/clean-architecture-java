@@ -34,4 +34,9 @@ public class Telefone {
         return "(".concat(ddd).concat(")").concat(" ").concat(numero);
     }
 
+    @Override
+    public String toString() {
+        return getTelefone();
+    }
+
 }
