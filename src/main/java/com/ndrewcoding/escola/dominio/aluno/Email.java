@@ -18,4 +18,9 @@ public class Email {
         return endereco;
     }
 
+    @Override
+    public String toString() {
+        return this.endereco;
+    }
+
 }
