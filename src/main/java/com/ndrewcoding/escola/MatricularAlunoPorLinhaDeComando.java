@@ -6,7 +6,7 @@ import com.ndrewcoding.escola.dominio.aluno.Email;
 import com.ndrewcoding.escola.dominio.aluno.RepositorioDeAlunos;
 import com.ndrewcoding.escola.infra.aluno.RepositorioDeAlunosEmMemoria;
 
-public class MatricularAluno {
+public class MatricularAlunoPorLinhaDeComando {
     public static void main(String[] args) {
 
         CPF cpf = new CPF("123.456.789-00");
