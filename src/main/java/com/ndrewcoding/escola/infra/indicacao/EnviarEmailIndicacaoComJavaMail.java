@@ -1,6 +1,6 @@
 package com.ndrewcoding.escola.infra.indicacao;
 
-import com.ndrewcoding.escola.aplicacao.indicacao.EnviarEmailIndicacao;
+import com.ndrewcoding.escola.dominio.indicacao.EnviarEmailIndicacao;
 import com.ndrewcoding.escola.dominio.aluno.Aluno;
 
 import javax.mail.*;

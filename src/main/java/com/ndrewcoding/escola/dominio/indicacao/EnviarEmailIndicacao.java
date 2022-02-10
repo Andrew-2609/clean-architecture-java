@@ -1,4 +1,4 @@
-package com.ndrewcoding.escola.aplicacao.indicacao;
+package com.ndrewcoding.escola.dominio.indicacao;
 
 import com.ndrewcoding.escola.dominio.aluno.Aluno;
 
