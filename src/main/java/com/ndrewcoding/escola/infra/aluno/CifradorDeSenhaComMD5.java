@@ -1,4 +1,4 @@
-package infra.aluno;
+package com.ndrewcoding.escola.infra.aluno;
 
 import com.ndrewcoding.escola.dominio.aluno.CifradorDeSenha;
 
